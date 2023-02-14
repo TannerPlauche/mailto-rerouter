@@ -12,6 +12,7 @@
         body {
             padding: 3rem 0;
             font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
         }
 
         h3,
@@ -20,14 +21,31 @@
             padding: 0;
             margin: 0;
         }
+
+        .code {
+            background-color: lightgray;
+            padding: 2px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 
 
 <body>
-    <h3>Opening Email</h3>
-    <br>
-    <h5>This tab will close automatically</h5>
+    <h3>About Mail-To Router</h3>
+    <p>
+        Mail-To Router is a simple tool that routes users to a normal mailto: url.
+    </p>
+    <p>
+        Some mobile application plugins are unable to open mailto: links.
+    </p>
+    <p>
+        route to <span class="code"> https://mail-to-router.netlify.app/?email={email-address}</span>. <br> The user
+        will be routed to their email
+        with
+        the correct email address.
+    </p>
+
 </body>
 
 <script lang="javascript">
@@ -37,21 +55,12 @@
     console.log('urlParams: ', urlParams);
     const email = urlParams.get('email');
     const page = urlParams.get('page');
-    console.log('page: ', page);
     console.log('email: ', email);
     const mailTourl = `mailto:${email ? email : ''}`
     console.log('mailTourl: ', mailTourl);
+    // location.href = mailTourl;
 
-    if (page) {
-        alert(page);
-        location.href = 'about.html'
-    } else {
-        location.href = mailTourl;
-    }
-
-    setTimeout(() => {
-        window.close();
-    }, 3000);
+    setTimeout(() => window.close(), 3000);
 
 </script>
 
