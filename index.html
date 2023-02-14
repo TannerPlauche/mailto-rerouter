@@ -24,6 +24,9 @@
     const mailTourl = `mailto:${email ? email : ''}`
     console.log('mailTourl: ', mailTourl);
     location.href = mailTourl;
+
+    setTimeout(() => window.close(), 3000);
+
 </script>
 
 </html>
