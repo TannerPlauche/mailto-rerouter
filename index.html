@@ -37,7 +37,7 @@
     const page = urlParams.get('page');
     const mailToUrl = `mailto:${email ? email : ''}`
 
-    if (page || !mailToUrl) {
+    if (page || !email) {
         location.href = 'about.html'
     } else {
         location.href = mailToUrl;
