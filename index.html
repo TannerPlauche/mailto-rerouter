@@ -32,26 +32,22 @@
 
 <script lang="javascript">
     const queryString = window.location.search;
-    console.log(queryString);
     const urlParams = new URLSearchParams(queryString);
-    console.log('urlParams: ', urlParams);
     const email = urlParams.get('email');
     const page = urlParams.get('page');
-    console.log('page: ', page);
-    console.log('email: ', email);
-    const mailTourl = `mailto:${email ? email : ''}`
-    console.log('mailTourl: ', mailTourl);
+    const mailToUrl = `mailto:${email ? email : ''}`
 
-    if (page) {
+    if (page || !mailToUrl) {
         alert(page);
         location.href = 'about.html'
     } else {
-        location.href = mailTourl;
-    }
+        location.href = mailToUrl;
 
-    setTimeout(() => {
-        window.close();
-    }, 3000);
+        setTimeout(() => {
+            window.close();
+        }, 3000);
+
+    }
 
 </script>
 
